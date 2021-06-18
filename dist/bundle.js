@@ -1,4 +1,4 @@
-// [DozFakeVideoPlayer]  Build version: 1.0.2  
+// [DozFakeVideoPlayer]  Build version: 1.0.3  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -150,7 +150,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "], ["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "]),
+var _templateObject = _taggedTemplateLiteral(["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                    background: #000;\n                    padding-bottom: 56.25%; \n                    height:0;\n                    overflow: hidden;\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "], ["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                    background: #000;\n                    padding-bottom: 56.25%; \n                    height:0;\n                    overflow: hidden;\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "]),
     _templateObject2 = _taggedTemplateLiteral(["<img loading=\"lazy\" d-show=\"", "\" src=\"", "\" />"], ["<img loading=\"lazy\" d-show=\"", "\" src=\"", "\" />"]);
 
 var _doz = __webpack_require__(0);
@@ -169,13 +169,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _class = function (_Component) {
-    _inherits(_class, _Component);
+var FakeVideoPlayer = function (_Component) {
+    _inherits(FakeVideoPlayer, _Component);
 
-    function _class(o) {
-        _classCallCheck(this, _class);
+    function FakeVideoPlayer(o) {
+        _classCallCheck(this, FakeVideoPlayer);
 
-        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, o));
+        var _this = _possibleConstructorReturn(this, (FakeVideoPlayer.__proto__ || Object.getPrototypeOf(FakeVideoPlayer)).call(this, o));
 
         _this.propsConvertOnFly = true;
 
@@ -209,7 +209,7 @@ var _class = function (_Component) {
         return _this;
     }
 
-    _createClass(_class, [{
+    _createClass(FakeVideoPlayer, [{
         key: "template",
         value: function template(h) {
             var _this2 = this;
@@ -246,10 +246,10 @@ var _class = function (_Component) {
         }
     }]);
 
-    return _class;
+    return FakeVideoPlayer;
 }(_doz.Component);
 
-exports.default = _class;
+exports.default = FakeVideoPlayer;
 ;
 
 /***/ }),
