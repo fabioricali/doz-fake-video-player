@@ -1,7 +1,7 @@
 {
-    "name": "YOUR-COMPONENT",
+    "name": "doz-fake-video-player",
     "version": "0.0.0",
-    "description": "[YOUR-COMPONENT-DESCRIPTION]",
+    "description": "This component shows a sequences of images with a play button",
     "main": "dist/bundle.js",
     "scripts": {
         "start": "webpack-dev-server --open",
@@ -19,13 +19,13 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/[YOUR-GITHUB-SPACE]/[YOUR-REPOSITORY].git"
+        "url": "git+https://github.com/fabioricali/doz-fake-video-player.git"
     },
     "bugs": {
-        "url": "https://github.com/[YOUR-GITHUB-SPACE]/[YOUR-REPOSITORY]/issues"
+        "url": "https://github.com/fabioricali/doz-fake-video-player/issues"
     },
-    "homepage": "https://github.com/[YOUR-GITHUB-SPACE]/[YOUR-REPOSITORY]#readme",
-    "author": "[YOUR-NAME]",
+    "homepage": "https://github.com/fabioricali/doz-fake-video-player#readme",
+    "author": "Fabio Ricali",
     "license": "MIT",
     "devDependencies": {
         "babel-core": "^6.26.0",
