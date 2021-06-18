@@ -1,13 +1,13 @@
-// [YourComponent]  Build version: 0.0.0  
+// [DozFakeVideoPlayer]  Build version: 1.0.0  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
 	else if(typeof define === 'function' && define.amd)
-		define("YourComponent", ["doz"], factory);
+		define("DozFakeVideoPlayer", ["doz"], factory);
 	else if(typeof exports === 'object')
-		exports["YourComponent"] = factory(require("doz"));
+		exports["DozFakeVideoPlayer"] = factory(require("doz"));
 	else
-		root["YourComponent"] = factory(root["Doz"]);
+		root["DozFakeVideoPlayer"] = factory(root["Doz"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE__0__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -124,6 +124,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function register() {
     if (typeof window !== 'undefined') {
         (0, _doz.define)('doz-fake-video-player', _src2.default);
+        // Keep in mind to add a prefix like this: 'dwc-' to the name of the component you are going to define, 
+        // this to prevent Doz from processing possible Web Components that have the same name as the Doz Components.
+        (0, _doz.defineWebComponent)('dwc-doz-fake-video-player', _src2.default, ['interval', 'images', 'title', 'href', 'target', 'show-fake-play', 'refresh-cache-cycle']);
     }
 }
 
@@ -147,10 +150,16 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n                        <div>hello</div>\n                    '], ['\n                        <div>hello</div>\n                    ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\n            <style> \n                button {\n                    font-size: 24px;\n                    padding: 20px;\n                }\n            </style>\n            \n            <button \n                onclick="this.clickMe()">\n                hello ', '\n            </button>\n            <my-c/>\n        '], ['\n\n            <style> \n                button {\n                    font-size: 24px;\n                    padding: 20px;\n                }\n            </style>\n            \n            <button \n                onclick="this.clickMe()">\n                hello ', '\n            </button>\n            <my-c/>\n        ']);
+var _templateObject = _taggedTemplateLiteral(["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "], ["\n            <style> \n                .container {\n                    position: relative;\n                    display: block;\n                    cursor: ", ";\n                }\n                \n                .frames {\n                    display: block;\n                }\n                \n                .fake-play {\n                    /*position: absolute;\n                    top: 50%;\n                    left: 50%;*/\n                    width: 20%;\n                    max-width: 160px;\n                    /*margin-left: -25px;\n                    margin-top: -25px;*/\n                    opacity: .8;\n                }\n                \n                .fake-play svg{\n                    fill: #fff\n                }\n                \n                .backdrop {\n                    position: absolute;\n                    width: 100%;\n                    height: 100%;\n                    left: 0;\n                    top: 0;\n                    background: rgba(0, 0, 0, .3);\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\n                }\n                \n                .frames img {\n                    width: 100%;\n                    display: block;\n                }\n            </style>\n            \n            <a title=\"", "\" alt=\"", "\" href=\"", "\" target=\"", "\" class=\"container\">\n                <div d-show=\"", "\" class=\"backdrop\">\n                    <", " class=\"fake-play\"/>\n                </div>\n                <div class=\"frames\">\n                    ", "\n                </div>\n            </a>\n        "]),
+    _templateObject2 = _taggedTemplateLiteral(["<img d-show=\"", "\" src=\"", "\" />"], ["<img d-show=\"", "\" src=\"", "\" />"]);
 
 var _doz = __webpack_require__(0);
+
+var _playSvg = __webpack_require__(3);
+
+var _playSvg2 = _interopRequireDefault(_playSvg);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -168,42 +177,73 @@ var _class = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, o));
 
+        _this.propsConvertOnFly = true;
+
         _this.props = {
-            name: 'DOZ'
+            interval: 2000,
+            images: [],
+            title: '',
+            href: 'javascript:void(0)',
+            target: '',
+            showFakePlay: true,
+            refreshCacheCycle: 15,
+            _showIndex: 0,
+            _lastCacheBuster: new Date().getTime()
         };
 
-        _this.config = {
-            components: {
-                'my-c': function myC(h) {
-                    return h(_templateObject);
+        _this._cycle = 0;
+
+        _this.propsConvert = {
+            images: function images(v) {
+                if (typeof v === 'string') {
+                    if (v[0] === '[') {
+                        var tmpV = v.replace(/'|&apos;/g, '"');
+                        tmpV = JSON.parse(tmpV);
+                        v = tmpV;
+                    }
                 }
+
+                return v;
             }
         };
         return _this;
     }
 
     _createClass(_class, [{
-        key: 'template',
+        key: "template",
         value: function template(h) {
-            return h(_templateObject2, this.props.name);
+            var _this2 = this;
+
+            //language=HTML
+            return h(_templateObject, this.props.showFakePlay ? 'pointer' : 'default', this.props.title, this.props.title, this.props.href, this.props.target, this.props.showFakePlay, _playSvg2.default, this.props.images.map(function (url, i) {
+                return h(_templateObject2, i === _this2.props._showIndex, _this2.cacheBuster(url));
+            }));
         }
     }, {
-        key: 'clickMe',
-        value: function clickMe() {
-            alert('Ciao!');
+        key: "onMount",
+        value: function onMount() {
+            var _this3 = this;
+
+            setInterval(function () {
+                _this3.props._showIndex = ++_this3.props._showIndex % _this3.props.images.length;
+                if (_this3._cycle === _this3.props.refreshCacheCycle) {
+                    _this3._cycle = 0;
+                    _this3.updateCacheBuster();
+                } else {
+                    _this3._cycle++;
+                }
+            }, this.props.interval);
         }
     }, {
-        key: 'onCreate',
-        value: function onCreate() {}
+        key: "cacheBuster",
+        value: function cacheBuster(url) {
+            return url + '?_cb=' + this.props._lastCacheBuster;
+        }
     }, {
-        key: 'onMount',
-        value: function onMount() {}
-    }, {
-        key: 'onUpdate',
-        value: function onUpdate() {}
-    }, {
-        key: 'onDestroy',
-        value: function onDestroy() {}
+        key: "updateCacheBuster",
+        value: function updateCacheBuster() {
+            this.props._lastCacheBuster = new Date().getTime();
+        }
     }]);
 
     return _class;
@@ -211,6 +251,27 @@ var _class = function (_Component) {
 
 exports.default = _class;
 ;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _templateObject = _taggedTemplateLiteral(["\n        <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n        viewBox=\"0 0 58.752 58.752\" style=\"enable-background:new 0 0 58.752 58.752;\" xml:space=\"preserve\">\n            <g>\n                <path d=\"M52.524,23.925L12.507,0.824c-1.907-1.1-4.376-1.097-6.276,0C4.293,1.94,3.088,4.025,3.088,6.264v46.205\n                c0,2.24,1.204,4.325,3.131,5.435c0.953,0.555,2.042,0.848,3.149,0.848c1.104,0,2.192-0.292,3.141-0.843l40.017-23.103\n                c1.936-1.119,3.138-3.203,3.138-5.439C55.663,27.134,54.462,25.05,52.524,23.925z M49.524,29.612L9.504,52.716\n                c-0.082,0.047-0.18,0.052-0.279-0.005c-0.084-0.049-0.137-0.142-0.137-0.242V6.263c0-0.1,0.052-0.192,0.14-0.243\n                c0.042-0.025,0.09-0.038,0.139-0.038c0.051,0,0.099,0.013,0.142,0.038l40.01,23.098c0.089,0.052,0.145,0.147,0.145,0.249\n                C49.663,29.47,49.611,29.561,49.524,29.612z\"/>\n            </g>\n        </svg>\n    "], ["\n        <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n        viewBox=\"0 0 58.752 58.752\" style=\"enable-background:new 0 0 58.752 58.752;\" xml:space=\"preserve\">\n            <g>\n                <path d=\"M52.524,23.925L12.507,0.824c-1.907-1.1-4.376-1.097-6.276,0C4.293,1.94,3.088,4.025,3.088,6.264v46.205\n                c0,2.24,1.204,4.325,3.131,5.435c0.953,0.555,2.042,0.848,3.149,0.848c1.104,0,2.192-0.292,3.141-0.843l40.017-23.103\n                c1.936-1.119,3.138-3.203,3.138-5.439C55.663,27.134,54.462,25.05,52.524,23.925z M49.524,29.612L9.504,52.716\n                c-0.082,0.047-0.18,0.052-0.279-0.005c-0.084-0.049-0.137-0.142-0.137-0.242V6.263c0-0.1,0.052-0.192,0.14-0.243\n                c0.042-0.025,0.09-0.038,0.139-0.038c0.051,0,0.099,0.013,0.142,0.038l40.01,23.098c0.089,0.052,0.145,0.147,0.145,0.249\n                C49.663,29.47,49.611,29.561,49.524,29.612z\"/>\n            </g>\n        </svg>\n    "]);
+
+exports.default = PlaySVG;
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function PlaySVG(h) {
+    return h(_templateObject);
+}
 
 /***/ })
 /******/ ]);
