@@ -58,14 +58,10 @@ export default class FakeVideoPlayer extends Component{
                 }
                 
                 .fake-play {
-                    /*position: absolute;
-                    top: 50%;
-                    left: 50%;*/
                     width: 20%;
                     max-width: 160px;
-                    /*margin-left: -25px;
-                    margin-top: -25px;*/
                     opacity: .8;
+                    transition: all 300ms;
                 }
                 
                 .fake-play svg{
@@ -84,6 +80,12 @@ export default class FakeVideoPlayer extends Component{
                     justify-content: center;
                 }
                 
+                .backdrop:hover .fake-play {
+                    opacity: 1;
+                    width: 25%;
+                    max-width: 180px;
+                }
+                
                 .frames img {
                     width: 100%;
                     display: block;
@@ -95,7 +97,7 @@ export default class FakeVideoPlayer extends Component{
                     <${PlaySVG} class="fake-play"/>
                 </div>
                 <div class="frames">
-                    ${this.props.images.map((url, i) => h`<img loading="lazy" d-show="${i === this.props._showIndex}" src="${this.cacheBuster(url)}" />`)}
+                    ${this.props.images.map((url, i) => h`<img d-show="${i === this.props._showIndex}" src="${this.cacheBuster(url)}" />`)}
                 </div>
             </a>
         `
