@@ -1,7 +1,7 @@
 import {Component} from "doz";
 import PlaySVG from "./play-svg";
 
-export default class extends Component{
+export default class FakeVideoPlayer extends Component{
 
     constructor(o) {
         super(o);
@@ -47,6 +47,10 @@ export default class extends Component{
                     position: relative;
                     display: block;
                     cursor: ${this.props.showFakePlay ? 'pointer' : 'default' };
+                    background: #000;
+                    padding-bottom: 56.25%; 
+                    height:0;
+                    overflow: hidden;
                 }
                 
                 .frames {
