@@ -1,6 +1,6 @@
 {
     "name": "doz-fake-video-player",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "This component shows a sequences of images with a play button",
     "main": "dist/bundle.js",
     "scripts": {
