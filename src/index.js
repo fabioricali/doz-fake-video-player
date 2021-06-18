@@ -91,7 +91,7 @@ export default class extends Component{
                     <${PlaySVG} class="fake-play"/>
                 </div>
                 <div class="frames">
-                    ${this.props.images.map((url, i) => h`<img d-show="${i === this.props._showIndex}" src="${this.cacheBuster(url)}" />`)}
+                    ${this.props.images.map((url, i) => h`<img loading="lazy" d-show="${i === this.props._showIndex}" src="${this.cacheBuster(url)}" />`)}
                 </div>
             </a>
         `
