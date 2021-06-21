@@ -15,6 +15,7 @@ function register() {
             'target',
             'show-fake-play',
             'refresh-cache-cycle',
+            'stop-download',
         ]);
     }
 }

@@ -16,10 +16,10 @@ export default class FakeVideoPlayer extends Component{
             target: '',
             showFakePlay: true,
             refreshCacheCycle: 15,
+            stopDownload: false,
             _showIndex: 0,
             _lastCacheBuster: new Date().getTime()
         }
-
 
         this._cycle = 0;
 
@@ -108,7 +108,8 @@ export default class FakeVideoPlayer extends Component{
             this.props._showIndex = ++this.props._showIndex % this.props.images.length
             if (this._cycle === this.props.refreshCacheCycle) {
                 this._cycle = 0;
-                this.updateCacheBuster();
+                if (!this.props.stopDownload)
+                    this.updateCacheBuster();
             } else {
                 this._cycle++;
             }
