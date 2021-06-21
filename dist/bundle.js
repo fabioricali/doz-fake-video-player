@@ -1,4 +1,4 @@
-// [DozFakeVideoPlayer]  Build version: 1.0.4  
+// [DozFakeVideoPlayer]  Build version: 1.0.5  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -126,7 +126,7 @@ function register() {
         (0, _doz.define)('doz-fake-video-player', _src2.default);
         // Keep in mind to add a prefix like this: 'dwc-' to the name of the component you are going to define, 
         // this to prevent Doz from processing possible Web Components that have the same name as the Doz Components.
-        (0, _doz.defineWebComponent)('dwc-doz-fake-video-player', _src2.default, ['interval', 'images', 'title', 'href', 'target', 'show-fake-play', 'refresh-cache-cycle']);
+        (0, _doz.defineWebComponent)('dwc-doz-fake-video-player', _src2.default, ['interval', 'images', 'title', 'href', 'target', 'show-fake-play', 'refresh-cache-cycle', 'stop-download']);
     }
 }
 
@@ -187,6 +187,7 @@ var FakeVideoPlayer = function (_Component) {
             target: '',
             showFakePlay: true,
             refreshCacheCycle: 15,
+            stopDownload: false,
             _showIndex: 0,
             _lastCacheBuster: new Date().getTime()
         };
@@ -228,7 +229,7 @@ var FakeVideoPlayer = function (_Component) {
                 _this3.props._showIndex = ++_this3.props._showIndex % _this3.props.images.length;
                 if (_this3._cycle === _this3.props.refreshCacheCycle) {
                     _this3._cycle = 0;
-                    _this3.updateCacheBuster();
+                    if (!_this3.props.stopDownload) _this3.updateCacheBuster();
                 } else {
                     _this3._cycle++;
                 }
